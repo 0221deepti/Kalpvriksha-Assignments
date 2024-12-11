@@ -30,7 +30,7 @@ void create_user(){
     fclose(file);
 
     printf("Successfully Added\n");
-};
+}
 
 // for just viewing the data
 void read_users(){
@@ -46,8 +46,7 @@ void read_users(){
         printf("ID: %d, Name: %s, Age: %d\n", user.id, user.name, user.age);
     }
     fclose(file);
-};
-
+}
 // to change user's data
 void update_user(){
      int target_id, found = 0;
@@ -85,7 +84,7 @@ void update_user(){
         remove("temp.txt");
         printf("User ID %d not found.\n", target_id);
     }
-};
+}
 
 // to delete data
 void delete_user(){
@@ -121,7 +120,7 @@ void delete_user(){
         remove("temp.txt");
         printf("User ID %d not found.\n", target_id);
     }
-};
+}
 
 // to check file is there or not
 void ensure_file_exists(){
@@ -131,7 +130,7 @@ void ensure_file_exists(){
         exit(1);
     }
     fclose(file);
-};
+}
 
 int main() {
     int ch;
