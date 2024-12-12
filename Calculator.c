@@ -56,7 +56,6 @@ int applyOperation(int a, int b, char operator) {
         case '/':
             if (b == 0) {
                 printf("Division by zero\n");
-                exit(1);
             }
             return a/b;
         default:
@@ -103,7 +102,6 @@ int evaluateExpression(char *exp) {
 
 
         printf("Invalid expression\n");
-        exit(1);
     }
 // rest operators
     while (peek(&ops) != -1) {
