@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 #define FILE_NAME "users.txt"
 
@@ -15,14 +13,15 @@ void create_user(){
      User user;
     FILE *file = fopen(FILE_NAME, "a");
     if (!file) {
-        printf("Error opening file.\n");
+        printf("Error:  opening of file\\n");
         return;
     }
 
     printf("Enter User ID: ");
     scanf("%d", &user.id);
     printf("Enter Name: ");
-    scanf(" %[^\n]", user.name);  // we can use this for taking string with spaces
+    scanf(" %[^\n]",user.name); //  we can use this for taking string with spaces
+
     printf("Enter Age: ");
     scanf("%d", &user.age);
     // adding data to our file
@@ -36,7 +35,7 @@ void create_user(){
 void read_users(){
      FILE *file = fopen(FILE_NAME, "r");
     if (!file) {
-        printf("Error opening file.\n");
+        printf("Error:  opening of file\\n");
         return;
     }
 
@@ -49,13 +48,13 @@ void read_users(){
 }
 // to change user's data
 void update_user(){
-     int target_id, found = 0;
+    int target_id, found = 0;
     User user;
     FILE *file = fopen(FILE_NAME, "r");
     FILE *temp = fopen("temp.txt", "w");
 
     if (!file || !temp) {
-        printf("Error opening file.\n");
+        printf("Error:  opening of file\\n");
         return;
     }
 
@@ -94,7 +93,7 @@ void delete_user(){
     FILE *temp = fopen("temp.txt", "w");
 
     if (!file || !temp) {
-        printf("Error opening file.\n");
+        printf("Error:  opening of file\n");
         return;
     }
 
@@ -122,20 +121,8 @@ void delete_user(){
     }
 }
 
-// to check file is there or not
-void ensure_file_exists(){
-      FILE *file = fopen(FILE_NAME, "a");
-    if (!file) {
-        printf("Error creating/opening the file.\n");
-        exit(1);
-    }
-    fclose(file);
-}
-
 int main() {
     int ch;
-    ensure_file_exists();
-
     while (1) {
         printf("\n**** USERS DATA ****\n");
         printf("1. Add User\n");
@@ -161,12 +148,9 @@ int main() {
                 break;
             case 5:
                 printf("closing..\n");
-                exit(0);
+                return 0;
             default:
-                printf("Enter only valid choice (1-5)\n");
+                printf("Enter only valid choice from 1 to 5\n");
         }
     }
-
-    return 0;
 }
-
