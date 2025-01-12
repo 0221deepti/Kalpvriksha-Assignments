@@ -31,9 +31,12 @@ void check_rotation(char *string1,char *string2){
     strcat(check_string,string1);
     if(check_substring(check_string,string2)){
         printf("Yes string2 is rotation of string1\n");
+        free(check_string);
         return;
     }
+     free(check_string);
      printf("Not a rotation\n");
+     return;
 }
 
 int main(){
